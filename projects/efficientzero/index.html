@@ -61,7 +61,7 @@
     },
     "headline": "Mastering Atari Games with Limited Data | Weirui Ye","datePublished": "2021-11-03T00:00:00+00:00",
     "dateModified": "2021-11-03T00:00:00+00:00",
-    "wordCount":  4 ,
+    "wordCount":  303 ,
     "publisher": {
         "@type": "Person",
         "name": "Weirui Ye",
@@ -199,7 +199,7 @@
     </div>
     <div class="mr-6 my-2">
         <i class="fas fa-clock mr-1"></i>
-        <span>1 min read</span>
+        <span>2 min read</span>
     </div>
     
     
@@ -218,9 +218,74 @@
         
 
         <div class="content">
-            <h2 id="introduction">Introduction</h2>
-<p>&hellip;</p>
-<h2 id="experimental-results">Experimental Results</h2>
+            <h2 id="abstract">Abstract</h2>
+<p>Reinforcement learning has achieved great success in many applications.
+However, sample efficiency remains a key challenge, with prominent methods requiring millions (or even billions) of environment steps to train.<br>
+Recently, there has been significant progress in sample efficient image-based RL algorithms;
+however, consistent human-level performance on the Atari game benchmark remains an elusive goal.
+We propose a sample efficient model-based visual RL algorithm built on MuZero, which we name EfficientZero.
+Our method achieves 190.4% mean human performance and 116.0% median performance on the Atari 100k benchmark with only two hours of real-time game experience and outperforms the state SAC in some tasks on the DMControl 100k benchmark.
+This is the first time an algorithm achieves super-human performance on Atari games with such little data.
+EfficientZero&rsquo;s performance is also close to DQN&rsquo;s performance at 200 million frames while we consume 500 times less data.
+EfficientZero&rsquo;s low sample complexity and high performance can bring RL closer to real-world applicability.
+We implement our algorithm in an easy-to-understand manner and it is available at <a href="https://github.com/YeWR/EfficientZero">here</a>. We hope it will accelerate the research of MCTS-based RL algorithms in the wider community.</p>
+<center>
+<img width="600" src="/images/efficientzero/compare.png">
+</center>
+<!--more-->
+<h2 id="efficientzero">EfficientZero</h2>
+<p>Our proposed method is built on <a href="https://deepmind.com/blog/article/muzero-mastering-go-chess-shogi-and-atari-without-rules">MuZero</a>. We make three critical changes:</p>
+<ul>
+<li>Self-supervised learning to learn a temporally consistent environment model (more supervision)</li>
+<li>Learn the value prefix in an end-to-end manner (less aleatoric uncertainty)</li>
+<li>Use the learned model to correct off-policy value targets (less off-policy issue)</li>
+</ul>
+<p>Please refer to the <a href="https://arxiv.org/abs/2111.00210">paper</a> for more details.</p>
+<h2 id="some-video-results-100k-environment-steps-data">Some Video Results (100k environment steps data)</h2>
+<div class="t" style="display: table; width: 100%; height: auto;">
+    <ul style="display: table-row">
+        <li style="display: table-cell"><center>Pong</center>
+        <video style="display: block;" controls="controls" autoplay="autoplay">
+            <source src="/videos/pong.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </li>
+        <li style="display: table-cell"><center>Breakout</center>
+        <video style="display: block;" controls="controls" autoplay="autoplay">
+            <source src="/videos/breakout.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </li>
+        <li style="display: table-cell"><center>Asterix</center>
+        <video style="display: block;" controls="controls" autoplay="autoplay">
+            <source src="/videos/asterix.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </li>
+    </ul>
+</div>
+<div class="t" style="display: table; width: 100%; height: auto;">
+    <ul style="display: table-row">
+        <li style="display: table-cell"><center>Qbert</center>
+        <video style="display: block;" controls="controls" autoplay="autoplay">
+            <source src="/videos/qbert.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </li>
+        <li style="display: table-cell"><center>CrazyClimber</center>
+        <video style="display: block;" controls="controls" autoplay="autoplay">
+            <source src="/videos/crazyclimber.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </li>
+        <li style="display: table-cell"><center>RoadRunner</center>
+        <video style="display: block;" controls="controls" autoplay="autoplay">
+            <source src="/videos/roadrunner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </li>
+    </ul>
+</div>
         </div>
         
         <div class="my-4">
@@ -260,8 +325,9 @@
 <div class="sticky-toc hidden lg:block px-6 pb-6 ">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#experimental-results">Experimental Results</a></li>
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#efficientzero">EfficientZero</a></li>
+    <li><a href="#some-video-results-100k-environment-steps-data">Some Video Results (100k environment steps data)</a></li>
   </ul>
 </nav>
 </div>
