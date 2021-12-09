@@ -61,7 +61,7 @@
     },
     "headline": "Mastering Atari Games with Limited Data | Weirui Ye","datePublished": "2021-11-03T00:00:00+00:00",
     "dateModified": "2021-11-03T00:00:00+00:00",
-    "wordCount":  337 ,
+    "wordCount":  356 ,
     "publisher": {
         "@type": "Person",
         "name": "Weirui Ye",
@@ -224,7 +224,7 @@ However, sample efficiency remains a key challenge, with prominent methods requi
 Recently, there has been significant progress in sample efficient image-based RL algorithms;
 however, consistent human-level performance on the Atari game benchmark remains an elusive goal.
 We propose a sample efficient model-based visual RL algorithm built on MuZero, which we name EfficientZero.
-Our method achieves 190.4% mean human performance and 116.0% median performance on the Atari 100k benchmark with only two hours of real-time game experience and outperforms the state SAC in some tasks on the DMControl 100k benchmark.
+Our method achieves 194.3% mean human performance and 109.0% median performance on the Atari 100k benchmark with only two hours of real-time game experience and outperforms the state SAC in some tasks on the DMControl 100k benchmark.
 This is the first time an algorithm achieves super-human performance on Atari games with such little data.
 EfficientZero&rsquo;s performance is also close to DQN&rsquo;s performance at 200 million frames while we consume 500 times less data.
 EfficientZero&rsquo;s low sample complexity and high performance can bring RL closer to real-world applicability.
@@ -241,6 +241,17 @@ We implement our algorithm in an easy-to-understand manner and it is available a
 <li>Use the learned model to correct off-policy value targets (less off-policy issue)</li>
 </ul>
 <p>Please refer to the <a href="https://arxiv.org/abs/2111.00210">paper</a> for more details.</p>
+<h2 id="training-curve">Training curve</h2>
+<p>Evaluation with 32 seeds for 3 different runs (different seeds).</p>
+<center>
+<img width="600" src="/images/efficientzero/total_results.png">
+</center>
+<!--more-->
+<p>IQM, Optimality Gap, Median, Mean from <a href="https://github.com/google-research/rliable.git">rliable</a>.</p>
+<center>
+<img width="600" src="/images/efficientzero/atari_100k_aggregates.png">
+</center>
+<!--more-->
 <h2 id="some-video-results-100k-environment-steps-data">Some Video Results (100k environment steps data)</h2>
 <div class="t" style="display: table; width: 100%; height: auto;">
     <ul style="display: table-row">
@@ -336,6 +347,7 @@ We implement our algorithm in an easy-to-understand manner and it is available a
   <ul>
     <li><a href="#abstract">Abstract</a></li>
     <li><a href="#efficientzero">EfficientZero</a></li>
+    <li><a href="#training-curve">Training curve</a></li>
     <li><a href="#some-video-results-100k-environment-steps-data">Some Video Results (100k environment steps data)</a></li>
     <li><a href="#citing">Citing</a></li>
   </ul>
